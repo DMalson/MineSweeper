@@ -66,10 +66,12 @@ public class Minesweeperclass extends JFrame {
                                     mineField[myY][myX][1] = 0; //Снимаем флажок мины
                                     flagsToUse++;
                                 } else if (flagsToUse > 0) {
-                                    mineField[myY][myX][1] = -1; //Устанавливаем флажок мины
-                                    flagsToUse--;
-                                    endOfTheGame = checkMap(mineField);
-                                    gameVictory = endOfTheGame;
+                                    if (mineField[myY][myX][1] != 1) {
+                                        mineField[myY][myX][1] = -1; //Устанавливаем флажок мины
+                                        flagsToUse--;
+                                        endOfTheGame = checkMap(mineField);
+                                        gameVictory = endOfTheGame;
+                                    }
                                 }
                                 minesweepClassObj.setTitle("Осталось найти " + flagsToUse + " мин.");
                                 break;
